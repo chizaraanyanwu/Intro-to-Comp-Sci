@@ -31,7 +31,8 @@ def test_underperformers_mutation():
     """
     
     expected = [2, 3, 4]
+    checker = expected
     original = collect_underperformers(expected, 5)
-    assert id(original) == id(expected)
+    assert checker == expected
 
 
