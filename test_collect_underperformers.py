@@ -32,7 +32,14 @@ def test_underperformers_mutation():
     
     expected = [2, 3, 4]
     checker = expected
-    original = collect_underperformers(expected, 5)
-    assert checker == expected
+    collect_underperformers(expected, 5)
+    msg = message('collect_underperformers(expected, 5)', f'{checker} == {expected}', 'checker')
+    assert checker == expected, msg
 
 
+def message(test_case: str, expected: str, actual: str):
+    """Return an error message for functon call that resulted in a value actual
+    when correct value is expected
+    """
+
+    return f"When we called {test_case} we expected {expected} but got {actual}"
